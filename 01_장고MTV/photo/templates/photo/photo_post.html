@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Photo App</title>
+    </head>
+    <body>
+        <h1><a href="/">홈으로 돌아가기</a></h1>
+        
+        <section>
+            <div>
+                <h2>New Photo</h2>
+                <form method="POST">
+                    {% csrf_token %} {{ form.as_p }} 
+                    <!-- 
+                        csrf_token, 글을 입력하는 폼에 악의적인 코드가 숨겨 있어 사용자가 원하지 않는 글을 작성하도록 하는 보안 취약점 방지 토큰
+                        form.as_p, from을 태그 형식으로 만들어주겠다.
+                    -->
+                    <button type="submit">완료!</button>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
