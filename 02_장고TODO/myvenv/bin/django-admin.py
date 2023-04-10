@@ -1,4 +1,4 @@
-#!/Users/hyunsoolim/Desktop/django_/02_장고TODO/myvenv/bin/python3
+#!/Users/hyunsoolim/Desktop/d/02.2_장고TODO/myvenv/bin/python3
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
