@@ -61,3 +61,31 @@ class BookAPI(APIView):
         serializer = BookSerializer(book)   # serializer 에 데이터 집어넣기(직렬화)
     
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
+# mixins
+from rest_framework import generics
+from rest_framework import mixins
+
+class BooksAPIMixins(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+
+    def get(self, request, *args, **kwargs):    # GET 메소드 처리함수(전체 목록)
+        return self.list(request, *args, **kwargs)      # mixins.ListModelMixin 과 연결
+    
+    def post(self, request, *args, **kwargs):   # POST 메소드 처리함수(1권 등록)
+        return self.create(request, *args, **kwargs)    # mixins.CreateModelMixin 과 연결
+    
+class BookAPIMixins(mixins.RetrieveModelMixin, generics.GenericAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+    lookup_field = 'bid' 
+    # Django 기본 모델 pk가 아닌 bid를 pk로 사용하고 있으니 lookup_field로 설정
+
+    def get(self, request, *args, **kwargs):    # GET 메소드 처리 함수(1권)
+        return self.retrueve(request, *args, **kwargs)      # mixins.RetrieveModelMixin 과 연결
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
