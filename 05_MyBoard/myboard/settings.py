@@ -41,11 +41,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'users',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
-    #'corsheaders.middleware.CorsMiddleware',        # 순서 중요!!
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
