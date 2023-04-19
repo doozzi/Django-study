@@ -29,8 +29,8 @@ class Login extends Component {
     console.log("[Login.js] handleSubmit");
     axios
       .post("http://localhost:8000/users/login/", {
-        Username: this.state.username,
-        Password: this.state.password,
+        username: this.state.username,
+        password: this.state.password,
       })
       .then((response) => {
         if (response.status < 300) {
