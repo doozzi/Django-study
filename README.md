@@ -4,7 +4,7 @@
 ## 개발환경 
 - Python 3.10.1
 - **IDE** : VS Code
-- **Framework** : sdjango 3.1.6, djangorestframework 3.12.2
+- **Framework** : django 3.1.6, djangorestframework 3.12.2
 - node.js 18.17.1 
 
 ## 스터디 기간 
